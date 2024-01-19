@@ -24,8 +24,8 @@ done
 # Timeout is in /usr/local/bin so as not to conflict with /bin/timeout
 # /usr/local/bin/timeout <timeout> <input_device>
 #nice -n 19 /usr/local/bin/timeout $timeout_period $dev &
-echo $timeout_period
-echo $dev
+echo "$timeout_period"
+echo "$dev"
 echo "Start backlight dimmer"
 sudo bash -c "echo 255 > /sys/class/backlight/10-0045/brightness"
 nice -n 19 /usr/local/bin/timeout $timeout_period $dev &
