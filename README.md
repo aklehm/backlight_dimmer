@@ -27,7 +27,7 @@ make
 sudo chown root:root  ./timeout; sudo chmod +s ./timeout
 ./timeout 10 event0
 ```
-**Caution:** I had to change the path of the brightness from `/sys/class/backlight/rpi-backlight/brightness` to `/sys/class/backlight/10-0045/brightness`. I don't know, if this the correct path on every system. If `./timeout 10 event0` returns an error, you may have to edit the path in the `timeout.c` and `run-timeout.sh` file.
+**Caution:** I had to change the path of the brightness from `/sys/class/backlight/rpi-backlight/brightness` to `/sys/class/backlight/10-0045/brightness`. I don't know, if this the correct path on every system. If `./timeout 10 event0` returns an error, you may have to edit the path in the `timeout.c` and `run-timeout.sh` file **before** running `make`.
 
 Copy to `/usr/local/bin` and make it setuid to allow anyone to run it.
 ```shell
