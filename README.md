@@ -10,7 +10,8 @@ Backlight dimmer will transparently dim the display backlight after there has be
 **Note:** This does not stop the event from getting to whatever is running on the display. Whatever is running will still receive an event, even if the display
 is off.
 
-The program will use a linux event device like `/dev/input/event0` to receive events from the touchscreen, keyboard, mouse, etc., and `/sys/class/backlight/rpi-backlight/brightness` to dim the backlight. The event device is a command-line parameter without the /dev/input/ path specification.
+The program will use a linux event device like `/dev/input/event0` to receive events from the touchscreen, keyboard, mouse, etc., and `/sys/class/backlight/10-0045/brightness` to dim the backlight. The event device is a command-line parameter without the /dev/input/ path specification.
+
 
 # Installation
 
@@ -26,6 +27,7 @@ make
 sudo chown root:root  ./timeout; sudo chmod +s ./timeout
 ./timeout 10 event0
 ```
+**Caution:** I had to change the path of the brightness from `/sys/class/backlight/rpi-backlight/brightness` to `/sys/class/backlight/10-0045/brightness`. I don't know, if this the correct path on every system. If `./timeout 10 event0` returns an error, you may have to edit the path in the `timeout.c` and `run-timeout.sh` file.
 
 Copy to `/usr/local/bin` and make it setuid to allow anyone to run it.
 ```shell
