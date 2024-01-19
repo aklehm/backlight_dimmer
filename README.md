@@ -16,7 +16,7 @@ The program will use a linux event device like `/dev/input/event0` to receive ev
 
 Clone the repository and change directories:
 ```shell
-git clone https://github.com/DougieLawson/backlight_dimmer
+git clone https://github.com/aklehm/backlight_dimmer.git
 cd backlight_dimmer
 ```
 
